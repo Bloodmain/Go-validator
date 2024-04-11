@@ -105,7 +105,7 @@ func executeValidating[T SupportedTypes](v Validating[T], name string, args []st
 
 func validateKind(v reflect.Value, opName string, args []string) error {
 	switch v.Kind() {
-	case reflect.Int:
+	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 		return executeValidating[int64](IntValidating(v.Int()), opName, args)
 	case reflect.String:
 		return executeValidating[string](StringValidating(v.String()), opName, args)
