@@ -1,4 +1,4 @@
-module validator
+module github.com/Bloodmain/validator
 
 go 1.22
 
