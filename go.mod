@@ -1,4 +1,4 @@
-module go_validator
+module validator
 
 go 1.22
 

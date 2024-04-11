@@ -1,4 +1,4 @@
-package go_validator
+package validator
 
 import (
 	"errors"
