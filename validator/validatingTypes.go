@@ -6,7 +6,7 @@ import (
 )
 
 type SupportedTypes interface {
-	int | string
+	int64 | string
 }
 
 type Validating[T SupportedTypes] interface {
@@ -37,15 +37,15 @@ func (i IntValidating) Max(bound int) error {
 	return nil
 }
 
-func (i IntValidating) In(v map[int]struct{}) error {
-	if _, has := v[int(i)]; !has {
+func (i IntValidating) In(v map[int64]struct{}) error {
+	if _, has := v[int64(i)]; !has {
 		return fmt.Errorf("%w: %d is not in %s", ErrInValidationFailed, i, printMap(v))
 	}
 	return nil
 }
 
-func (i IntValidating) Parse(s string) (int, error) {
-	return strconv.Atoi(s)
+func (i IntValidating) Parse(s string) (int64, error) {
+	return strconv.ParseInt(s, 10, 64)
 }
 
 type StringValidating string
