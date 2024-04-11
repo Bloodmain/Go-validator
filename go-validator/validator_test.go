@@ -1,4 +1,4 @@
-package homework
+package go_validator
 
 import (
 	"errors"
